@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="weather-title">Weather App</div>
+            <button id="themeToggle">
+                🌙 Dark Mode
+            </button>
+            <div class="search-wrapper">
+                <input type="text" id="city_input" placeholder="Enter city name">
+                <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                <button id="locationBtn"><i class="fa-solid fa-location-crosshairs"></i> Current Location</button>
+            </div>
+        </div>
+
+        <div class="main-body">
+            <div class="weather-left">
+                <div class="card" id="currentWeatherCard">
+                    <div class="current-weather">
+                        <div class="details">
+                            <p>Now</p>
+                            <h2>__°C</h2>
+                            <p>___</p>
+                        </div>
+                        <div class="weather-icon">
+                            <i class="fa-solid fa-cloud fa-3x"></i>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-footer">
+                        <p><i class="fa-regular fa-calendar"></i> Date</p>
+                        <p><i class="fa-solid fa-location-dot"></i> Location</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>5 Days Forecast</h2>
+                    <div class="day-forecast" id="forecastContainer">
+                        </div>
+                </div>
+            </div>
+
+            <div class="weather-right">
+                <h2>Today's Highlights</h2>
+                <div class="highlights">
+                    
+                    <div class="card" id="aqiCard">
+                        <div class="card-head">
+                            <p>Air Quality Index</p>
+                        </div>
+                        <div class="air-indices">
+                            <i class="fa-solid fa-wind fa-3x"></i>
+                            <div class="item"><p>PM2.5</p><h2>__</h2></div>
+                            <div class="item"><p>PM10</p><h2>__</h2></div>
+                            <div class="item"><p>SO2</p><h2>__</h2></div>
+                            <div class="item"><p>CO</p><h2>__</h2></div>
+                            <div class="item"><p>NO</p><h2>__</h2></div>
+                            <div class="item"><p>NO2</p><h2>__</h2></div>
+                        </div>
+                    </div>
+
+                    <div class="card" id="sunriseCard">
+                        <div class="card-head">
+                            <p>Sunrise & Sunset</p>
+                        </div>
+                        <div class="sunrise-sunset">
+                            <div class="item">
+                                <i class="fa-solid fa-sun fa-2x"></i>
+                                <div><p>Sunrise</p><h2>__:__ AM</h2></div>
+                            </div>
+                            <div class="item">
+                                <i class="fa-solid fa-moon fa-2x"></i>
+                                <div><p>Sunset</p><h2>__:__ PM</h2></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mini-cards">
+                    <div class="card"><p>Humidity</p><h2 id="humidityval">__%</h2></div>
+                    <div class="card"><p>Pressure</p><h2 id="pressureval">__ hPa</h2></div>
+                    <div class="card"><p>Visibility</p><h2 id="visibilityval">__ km</h2></div>
+                    <div class="card"><p>Wind Speed</p><h2 id="windspeedval">__ m/s</h2></div>
+                    <div class="card"><p>Feels Like</p><h2 id="feelsval">__°C</h2></div>
+                </div>
+
+                <h2>Today at</h2>
+                <div class="hourly-forecast" id="hourlyForecastCard">
+                    </div>
+
+                <div class="card chart-card">
+                    <canvas id="weatherChart"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

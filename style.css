@@ -1,0 +1,394 @@
+:root {
+    --bg-color1: #212529;
+    --bg-color2: #2a2b2d;
+
+    --aqi-1: #d4e157;
+    --aqi-2: #ffee58;
+    --aqi-3: #ffca28;
+    --aqi-4: #ff7043;
+    --aqi-5: #ef5350;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fffcfc;
+    font-family: sans-serif;
+    padding: 20px;
+    transition: background 0.5s ease;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.weather-title{
+    font-size: 45px;
+    font-weight: 700;
+    color: rgb(20, 0, 0);
+}
+
+.header h2 {
+    font-size: 40px;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header input {
+    width: 250px;
+    padding: 12px 18px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: var(--bg-color2);
+    color: #f9f8f8;
+    font-size: 15px;
+}
+
+.header button {
+    border: none;
+    padding: 12px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#searchBtn {
+    background: #fff;
+}
+
+#locationBtn {
+    background: #ea6e4b;
+    color: #fff;
+}
+
+.main-body {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+}
+
+/* CARD COMMON STYLING */
+.card {
+    background: var(--bg-color2);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* LEFT SIDE */
+.weather-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.current-weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-weather h2 {
+    font-size: 48px;
+}
+
+.current-weather img {
+    width: 90px;
+}
+
+.card-footer {
+    border-top: 1px solid #555;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.card-footer p {
+    margin-bottom: 10px;
+    color: #f7f4f4;
+}
+
+/* FORECAST */
+.day-forecast h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.forecast-item {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* HOURLY FORECAST COMMON CONTAINER */
+.hourly-forecast {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.hourly-forecast .card {
+    text-align: center;
+    padding: 15px;
+}
+
+.hourly-forecast img {
+    width: 50px;
+    margin: 10px 0;
+}
+
+/* RIGHT SIDE HEADINGS */
+.weather-right h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* TOP HIGHLIGHTS (AQI & Sunrise-Sunset) */
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.highlights .card {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* CARD HEAD */
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card-head p {
+    color: #fcf8f8;
+    font-size: 16px;
+}
+
+.air-index{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+    color:#fdfbfb;
+}
+
+.aqi-1{
+    background:#d4e157;
+}
+
+.aqi-2{
+    background:#ffee58;
+}
+
+.aqi-3{
+    background:#ffca28;
+}
+
+.aqi-4{
+    background:#ff7043;
+}
+
+.aqi-5{
+    background:#ef5350;
+}
+
+.air-indices {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    gap: 10px;
+}
+
+.air-indices p {
+    text-align: center;
+    color: #f7f5f5;
+}
+
+/* SUNRISE & SUNSET */
+.sunrise-sunset {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: auto;
+    width: 100%;
+}
+
+.sunrise-sunset .item {
+    display: flex;
+    flex-direction: row;     
+    align-items: center;     
+    gap: 15px;               
+}
+
+.mini-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+@media(max-width: 1100px) {
+    .main-body {
+        grid-template-columns: 1fr; /* Mobile/Tablet layout single column */
+    }
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+    .hourly-forecast {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media(max-width: 1040px) {
+    .hourly-forecast {
+        grid-template-columns: repeat(4, 1fr); /* Comma ',' fixed here */
+    }
+}
+
+@media(max-width: 992px) {
+    .air-indices {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 660px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .header h2 {
+        margin-bottom: 8px;
+    }
+    .weather-input {
+        width: 100%;
+    }
+    .header input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 580px) {
+    .air-indices {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .sunrise-sunset {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 450px) {
+    .hourly-forecast {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+#themeToggle{
+    border:none;
+    padding:12px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    background:#f3f1f1;
+    color:#000;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.light-mode{
+    color:#000;
+}
+
+.light-mode .card{
+    background:#faf7f7cc;
+    color:#000;
+}
+
+.light-mode input{
+    background:#fff;
+    color:#000;
+}
+
+.light-mode .card-footer p,
+.light-mode .card-head p,
+.light-mode .air-indices p{
+    color:#333;
+}
+.weather-right h2{
+    color: rgb(253, 249, 249);
+    text-align: center;
+}
+.light-mode .weather-right h2{
+    color: rgb(250, 248, 248);
+}
+.chart-card{
+    width: 400px;
+    height: 220px;
+    padding: 20px;
+    margin-bottom: 22px;
+    align-items: center;
+    place-items: center;
+    justify-content: space-between;
+    background-position: center;
+}
+
+#weatherChart{
+    width: 100% ;
+    height: 100% ;
+    align-items: center;
+    place-items: center;
+    justify-content: space-between;
+    background-position: center;
+}
+.chart-card{
+    margin-top: 30px;
+}
+.chart-card{
+    margin-top: 40px;
+}
+.chart-card{
+    margin: 30px auto 0 auto;
+}
+.weather-right > h2{
+    color: black;
+}
